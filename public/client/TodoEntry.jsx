@@ -5,19 +5,25 @@ class TodoEntry extends React.Component {
     
   }
 
-  handleClick() {
-    
-    var completedSubmission = {
+  createSubmissionObj() {
+    var submission = {
       _id: this.props.listItem._id,
       userId: this.props.listItem.userId,
       user: this.props.listItem.user,
       task: this.props.listItem.value,
-      completed: !this.props.listItem.completed
+      completed: this.props.listItem.completed
     }
+    return submission;
+  }
 
-    this.props.toggleCompletion(this.props.index);
+  handleCheckClick() {
+    // Create submission before toggle of state
+    var todoEntryContext = this;
 
-
+    var completedSubmission = this.createSubmissionObj();
+    completedSubmission.completed = !completedSubmission.completed;
+    
+    // Make AJAX request so state equals the database record
     $.ajax({
       method: 'PUT',
       url: 'http://127.0.0.1:3000/list',
@@ -25,28 +31,47 @@ class TodoEntry extends React.Component {
       contentType: 'application/json',
       success: function(data) {
         console.log('Toggle completion success!');
+        todoEntryContext.props.updateList();
       },
       error: function(err) {
         console.error('Toggle completion failed :(');
       }
     });
-
   }
-  // Set initial state of entry to "completed" value from table
+
+  handleDeleteClick() {
+    var todoEntryContext = this;
+    var deleteSubmission = this.createSubmissionObj();
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://127.0.0.1:3000/list',
+      data: JSON.stringify(deleteSubmission),
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('Toggle completion success!');
+        todoEntryContext.props.updateList();
+      },
+      error: function(err) {
+        console.error('Toggle completion failed :(');
+      }
+    });
+  }
+
   render() {
     return (
       <li className="collection-item">
-        <div>
-          {this.props.listItem.task}
+        <i className="close material-icons" onClick={this.handleDeleteClick}>close</i>
+        <span>
+            {this.props.listItem.task}
           <a href="#!" 
              className="secondary-content">
             <input type="checkbox" 
             id={this.props.listItem._id} 
-            onClick={() => this.handleClick()}
+            onClick={() => this.handleCheckClick()}
             checked={this.props.listItem.completed ? "checked" : ""}/>
             <label htmlFor={this.props.listItem._id}></label>
           </a>
-        </div>
+        </span>
       </li>
     )
   }
