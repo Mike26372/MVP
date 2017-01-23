@@ -42,7 +42,8 @@ class TodoEntry extends React.Component {
              className="secondary-content">
             <input type="checkbox" 
             id={this.props.listItem._id} 
-            onClick={() => this.handleClick()}/>
+            onClick={() => this.handleClick()}
+            checked={this.props.listItem.completed ? "checked" : ""}/>
             <label htmlFor={this.props.listItem._id}></label>
           </a>
         </div>
