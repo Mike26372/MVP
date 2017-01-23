@@ -3,6 +3,7 @@ var List = require('../schema/list.js');
 
 var createListItem = Q.nbind(List.create, List);
 var findListItems = Q.nbind(List.find, List);
+var updateListItems = Q.nbind(List.update, List);
 
 module.exports = {
   addToList: function(req, res, next) {
@@ -39,5 +40,21 @@ module.exports = {
       console.error('List items could not be retrieved');
       return res.status(404).end();
     });
+  },
+
+  toggleCompletion: function(req, res, next) {
+    
+    console.log(req.body._id);
+    console.log(req.body.completed);
+    
+    updateListItems({_id: req.body._id}, {completed: req.body.completed}, {})
+    .then((listItem) => {
+      console.log('List item updated');
+      return res.status(202).end();
+    })
+    .catch((err) => {
+      console.log('List item update failed');
+      return res.status(404).end();
+    })
   }
 };

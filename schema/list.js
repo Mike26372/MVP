@@ -15,7 +15,7 @@ var listSchema = new Schema({
 listSchema.plugin(autoIncrement.plugin, 'List');
 
 listSchema.pre('save', function(next) {
-  var now = newDate();
+  var now = new Date();
   this.updatedAt = now;
   if (!this.createdAt) {
     this.createdAt = now;

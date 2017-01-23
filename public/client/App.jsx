@@ -8,6 +8,7 @@ class App extends React.Component {
       list: ['state not updated']
     }
     this.updateList = this.updateList.bind(this);
+    this.toggleCompletion = this.toggleCompletion.bind(this);
   }
 
   componentWillMount() {
@@ -32,13 +33,21 @@ class App extends React.Component {
     })
   }
 
+  toggleCompletion(index) {
+    var tempState = this.state.list.slice();
+    var current = tempState[index];
+    current.completed = !current.completed;
+    this.setState({list: tempState});
+  }
+
   render() {
     return(
       <div>
         <TodoForm userId={this.state.userId} 
                   user={this.state.user}
                   updateList={this.updateList}/>
-        <TodoList list={this.state.list}/>
+        <TodoList list={this.state.list}
+                  toggleCompletion={this.toggleCompletion}/>
       </div>
     )
   }
