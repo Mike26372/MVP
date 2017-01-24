@@ -4,6 +4,7 @@ var List = require('../schema/list.js');
 var createListItem = Q.nbind(List.create, List);
 var findListItems = Q.nbind(List.find, List);
 var updateListItems = Q.nbind(List.update, List);
+var removeListItems = Q.nbind(List.remove, List);
 
 module.exports = {
   addToList: function(req, res, next) {
@@ -44,8 +45,8 @@ module.exports = {
 
   toggleCompletion: function(req, res, next) {
     
-    console.log(req.body._id);
-    console.log(req.body.completed);
+    // console.log(req.body._id);
+    // console.log(req.body.completed);
     
     updateListItems({_id: req.body._id}, {completed: req.body.completed}, {})
     .then((listItem) => {
@@ -56,5 +57,17 @@ module.exports = {
       console.log('List item update failed');
       return res.status(404).end();
     })
+  },
+
+  deleteTodos: function(req, res, next) {
+    removeListItems({_id: req.body._id})
+    .then(() => {
+      console.log('Item removed');
+      return res.status(200).end();
+    })
+    .catch((err) => {
+      console.error('Item could not be removed');
+      return res.status(404).end();
+    });
   }
 };

@@ -48,7 +48,7 @@ class TodoEntry extends React.Component {
       data: JSON.stringify(deleteSubmission),
       contentType: 'application/json',
       success: function(data) {
-        console.log('Toggle completion success!');
+        console.log('Data deletion success!');
         todoEntryContext.props.updateList();
       },
       error: function(err) {
@@ -60,7 +60,7 @@ class TodoEntry extends React.Component {
   render() {
     return (
       <li className="collection-item">
-        <i className="close material-icons" onClick={this.handleDeleteClick}>close</i>
+        <a onClick={() => this.handleDeleteClick()}><i className="close material-icons">close</i></a>
         <span>
             {this.props.listItem.task}
           <a href="#!" 
