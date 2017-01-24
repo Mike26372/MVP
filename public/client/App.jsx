@@ -44,6 +44,19 @@ class App extends React.Component {
         console.log('Completed list update request error booo');
       }
     });
+
+    $.ajax({
+      method: 'GET',
+      url: 'http://127.0.0.1:3000/goal',
+      dataType: 'json',
+      success: function(data) {
+        console.log('Goals update request success!');
+        appContext.setState({goals: data});
+      },
+      error: function(error) {
+        console.log('Goals update request error booo');
+      }
+    });
   }
 
 
