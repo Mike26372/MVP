@@ -1,3 +1,4 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup; // ES5 with react-with-addons.js
 
 class TodoList extends React.Component {
   constructor() {
@@ -11,17 +12,34 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul className="collection with-header collapsible">
-          <li className="collection-header valign-wrapper"><i className="material-icons medium">done</i><h4 className="valign"> Todo List</h4></li>
+      <div className="hoverable">
+        <ReactCSSTransitionGroup
+                className="example collection with-header collapsible"
+                component="ul"
+                transitionName="example"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}>
+          <li className="collection-header valign-wrapper">
+            <span className="glyphicon glyphicon-tasks"></span>
+            <h4 className="valign">Todo List</h4>
+          </li>
           {this.props.list.map((listItem, index) => {
-            return <TodoEntry key={index} 
+            return <TodoEntry key={listItem._id} 
                               listItem={listItem} 
                               index={index} 
                               updateList={this.props.updateList}/>
           })}
-        </ul>
+        </ReactCSSTransitionGroup>
       </div>
     )
   }
 }
+
+// <div id="archive-switch" className="switch right right-align">
+//   <label>
+//     Off
+//     <input type="checkbox" />
+//     <span className="lever"></span>
+//     On
+//   </label>
+// </div>

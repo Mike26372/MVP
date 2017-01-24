@@ -1,5 +1,18 @@
-// Use utility functions to connect React with Mongo?
-var Q = require('q');
-var List = require('./schema/list.js');
-var User = require('./schema/user.js');
 
+module.exports = {
+  sortByCompleteComparator: function(a, b) {
+    if (a.completed === b.completed) {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      } else {
+        return 1;
+      }
+    } else {
+      if (a.completed) {
+        return 1;
+      } else {
+        return -1;
+      }
+    } 
+  }
+}

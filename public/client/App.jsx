@@ -40,6 +40,7 @@ class App extends React.Component {
                   updateList={this.updateList}/>
         <TodoList list={this.state.list}
                   updateList={this.updateList}/>
+        <InspirationalQuote />
       </div>
     )
   }

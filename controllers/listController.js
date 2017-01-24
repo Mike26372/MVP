@@ -1,5 +1,6 @@
 var Q = require('q');
 var List = require('../schema/list.js');
+var utility = require('../utility/utility-func.js');
 
 var createListItem = Q.nbind(List.create, List);
 var findListItems = Q.nbind(List.find, List);
@@ -32,7 +33,8 @@ module.exports = {
     
     findListItems({})
     .then((listItems) => {
-      return listItems.reverse();
+      // return listItems.reverse();
+      return listItems.sort(utility.sortByCompleteComparator);
     })
     .then((listItems) => {
       return res.status(200).json(listItems);
