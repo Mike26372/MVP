@@ -34,3 +34,18 @@ body {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+#addTodoButton {
+  margin-top: 15px;
+}
+
+#addTodoIcon {
+  padding-left: 4px;
+}
+
+input:focus {
+  border-bottom: 1px solid #3d5afe;
+  -webkit-box-shadow: 0 1px 0 0 #3d5afe;
+  -moz-box-shadow: 0 1px 0 0 #3d5afe;
+  box-shadow: 0 1px 0 0 #3d5afe;
+}

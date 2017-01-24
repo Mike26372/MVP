@@ -21,6 +21,8 @@ class TodoEntry extends React.Component {
     var todoEntryContext = this;
 
     var completedSubmission = this.createSubmissionObj();
+    this.props.spliceTodo(this.props.index);
+
     completedSubmission.completed = !completedSubmission.completed;
     
     // Make AJAX request so state equals the database record

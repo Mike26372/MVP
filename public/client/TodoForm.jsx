@@ -42,11 +42,20 @@ class TodoForm extends React.Component {
                 onSubmit={(e) => this.handleSubmit(e)} 
                 ref={(input) => this.todoForm = input}>
             <div className="row">
-              <div className="input-field col s6">
+              <div className="input-field col s9">
                 <i className="material-icons prefix">mode_edit</i>
                 <input id="icon_prefix2" type="text" className="validate"
                 ref={(input) => this.task = input} ></input>
                 <label htmlFor="icon_prefix2">Enter a todo</label>
+              </div>
+              <div className="col s3 valign" id="addTodoButton">
+                <button  
+                        className="btn-flat waves-effect waves-light" 
+                        type="submit" 
+                        name="action">Add
+                  <span className="glyphicon glyphicon-plus"
+                        id="addTodoIcon"></span>
+                </button>
               </div>
             </div>
           </form>

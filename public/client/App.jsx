@@ -1,13 +1,14 @@
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       userId: 1,
       user: 'Michael',
       list: ['state not updated']
-    }
+    };
     this.updateList = this.updateList.bind(this);
+    this.spliceTodo = this.spliceTodo.bind(this);
   }
 
   componentWillMount() {
@@ -29,19 +30,26 @@ class App extends React.Component {
       error: function(error) {
         console.log('List update request error booo');
       }
-    })
+    });
+  }
+
+  spliceTodo(index) {
+    var list = this.state.list.slice();
+    list.splice(index, 1);
+    this.setState({list: list});
   }
 
   render() {
-    return(
+    return (
       <div>
         <TodoForm userId={this.state.userId} 
                   user={this.state.user}
                   updateList={this.updateList}/>
         <TodoList list={this.state.list}
-                  updateList={this.updateList}/>
+                  updateList={this.updateList}
+                  spliceTodo={this.spliceTodo}/>
         <InspirationalQuote />
       </div>
-    )
+    );
   }
 }
