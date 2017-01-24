@@ -138,3 +138,13 @@ body {
 #form-label.active, #form-icon.active {
   color: #f57c00;
 }
+
+.goal-textarea {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+textarea.materialize-textarea {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

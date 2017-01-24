@@ -14,7 +14,7 @@ module.exports = function(app, express) {
   app.get('/goal', goalController.getAllGoals);
   app.get('/goal/completed', goalController.getCompleted);
   app.post('/goal', goalController.addToGoals);
-  app.put('/goal', goalController.toggleCompletion);
+  app.put('/goal', goalController.updateDescription);
   app.delete('/goal', goalController.deleteGoals);
 
   app.use(function(req, res) {

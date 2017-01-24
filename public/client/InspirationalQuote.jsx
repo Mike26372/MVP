@@ -25,7 +25,7 @@ class InspirationalQuote extends React.Component {
       }
     })
     .done(function(data) {
-      console.log(data);
+      console.log('Quote received!');
       quoteContext.setState({quote: data});
     })
     .fail(function(err) {

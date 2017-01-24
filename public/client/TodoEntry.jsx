@@ -10,7 +10,7 @@ class TodoEntry extends React.Component {
       _id: this.props.listItem._id,
       userId: this.props.listItem.userId,
       user: this.props.listItem.user,
-      task: this.props.listItem.value,
+      task: this.props.listItem.task,
       completed: this.props.listItem.completed
     };
     return submission;
@@ -19,9 +19,7 @@ class TodoEntry extends React.Component {
   handleCheckClick() {
     // Create submission before toggle of state
     var todoEntryContext = this;
-
     var completedSubmission = this.createSubmissionObj();
-    // this.props.spliceTodo(this.props.index);
 
     completedSubmission.completed = !completedSubmission.completed;
     

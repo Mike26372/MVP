@@ -5,7 +5,7 @@ var autoIncrement = require('mongoose-auto-increment');
 
 var listSchema = new Schema({
   userId: {type: Number, required: true},
-  user: {type: String, required: true, unique: true},
+  user: {type: String, required: true},
   task: {type: String, required: true},
   completed: {type: Boolean},
   'createdAt': {type: Date},
@@ -21,7 +21,7 @@ listSchema.pre('save', function(next) {
     this.createdAt = now;
   }
   next();
-})
+});
 
 // Add methods to schema
 // listSchema.methods.hashPassword
