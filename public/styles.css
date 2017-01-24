@@ -18,12 +18,7 @@ body {
   font-style: italic;
 }
 
-.glyphicon-tasks {
-  font-size: 30px;
-  padding: 0 15px;
-}
-
-.glyphicon-ok {
+.glyphicon-tasks, .glyphicon-ok, .glyphicon-pushpin {
   font-size: 30px;
   padding: 0 15px;
 }

@@ -6,10 +6,10 @@ class App extends React.Component {
       userId: 1,
       user: 'Michael',
       list: ['state not updated'],
-      completed: ['no completed tasks']
+      completed: ['no completed tasks'],
+      goals: ['no aspirations here'],
     };
     this.updateList = this.updateList.bind(this);
-    this.spliceTodo = this.spliceTodo.bind(this);
   }
 
   componentWillMount() {
@@ -52,14 +52,21 @@ class App extends React.Component {
       <div>
         <TodoForm userId={this.state.userId} 
                   user={this.state.user}
-                  updateList={this.updateList}/>
+                  updateList={this.updateList}
+                  />
         <TodoList list={this.state.list}
                   updateList={this.updateList}
                   />
         <CompletedList completed={this.state.completed}
                   updateList={this.updateList}
                   />
-        <IntentionList />
+        <GoalForm userId={this.state.userId} 
+                  user={this.state.user}
+                  updateList={this.updateList}
+                  />
+        <GoalList goals={this.state.goals}
+                  updateList={this.updateList}
+                  />
         <InspirationalQuote />
       </div>
     );

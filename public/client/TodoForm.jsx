@@ -6,14 +6,11 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // Create submission to pass into AJAX
     var todoSubmission = {
       userId: this.props.userId,
       user: this.props.user,
       task: this.task.value
     };
-    // Make AJAX request
-      // On success, update state with database objects
     var TodoFormContext = this;
 
     $.ajax({
@@ -46,7 +43,7 @@ class TodoForm extends React.Component {
                 <i id="form-icon" className="material-icons prefix">mode_edit</i>
                 <input id="icon_prefix2" type="text" className="validate"
                 ref={(input) => this.task = input} ></input>
-                <label id="form-label" htmlFor="icon_prefix2">Enter a todo</label>
+                <label id="form-label" htmlFor="icon_prefix2">Enter a task</label>
               </div>
               <div className="col s3 valign" id="addTodoButton">
                 <button  
