@@ -14,9 +14,9 @@ class TodoList extends React.Component {
     return (
       <div className="hoverable">
         <ReactCSSTransitionGroup
-                className="example collection with-header collapsible"
+                className="completed collection with-header collapsible"
                 component="ul"
-                transitionName="example"
+                transitionName="completed"
                 transitionEnterTimeout={300}
                 transitionLeaveTimeout={300}>
           <li className="collection-header valign-wrapper">

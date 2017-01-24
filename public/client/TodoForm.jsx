@@ -1,7 +1,7 @@
 
 class TodoForm extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   handleSubmit(e) {
@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
       userId: this.props.userId,
       user: this.props.user,
       task: this.task.value
-    }
+    };
     // Make AJAX request
       // On success, update state with database objects
     var TodoFormContext = this;
@@ -43,10 +43,10 @@ class TodoForm extends React.Component {
                 ref={(input) => this.todoForm = input}>
             <div className="row">
               <div className="input-field col s9">
-                <i className="material-icons prefix">mode_edit</i>
+                <i id="form-icon" className="material-icons prefix">mode_edit</i>
                 <input id="icon_prefix2" type="text" className="validate"
                 ref={(input) => this.task = input} ></input>
-                <label htmlFor="icon_prefix2">Enter a todo</label>
+                <label id="form-label" htmlFor="icon_prefix2">Enter a todo</label>
               </div>
               <div className="col s3 valign" id="addTodoButton">
                 <button  
@@ -61,6 +61,6 @@ class TodoForm extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }

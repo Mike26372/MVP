@@ -31,10 +31,10 @@ module.exports = {
 
   getAllTodos: function(req, res, next) {
     
-    findListItems({})
+    findListItems({completed: false})
     .then((listItems) => {
-      // return listItems.reverse();
-      return listItems.sort(utility.sortByCompleteComparator);
+      return listItems.reverse();
+      // return listItems.sort(utility.sortByCompleteComparator);
     })
     .then((listItems) => {
       return res.status(200).json(listItems);
@@ -47,9 +47,6 @@ module.exports = {
 
   toggleCompletion: function(req, res, next) {
     
-    // console.log(req.body._id);
-    // console.log(req.body.completed);
-    
     updateListItems({_id: req.body._id}, {completed: req.body.completed}, {})
     .then((listItem) => {
       console.log('List item updated');
@@ -58,7 +55,7 @@ module.exports = {
     .catch((err) => {
       console.log('List item update failed');
       return res.status(404).end();
-    })
+    });
   },
 
   deleteTodos: function(req, res, next) {
@@ -69,6 +66,22 @@ module.exports = {
     })
     .catch((err) => {
       console.error('Item could not be removed');
+      return res.status(404).end();
+    });
+  },
+
+  getCompleted: function(req, res, next) {
+    
+    findListItems({completed: true})
+    .then((listItems) => {
+      return listItems.reverse();
+      // return listItems.sort(utility.sortByCompleteComparator);
+    })
+    .then((listItems) => {
+      return res.status(200).json(listItems);
+    })
+    .catch((error) => {
+      console.error('List items could not be retrieved');
       return res.status(404).end();
     });
   }

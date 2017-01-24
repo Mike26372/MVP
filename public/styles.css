@@ -1,5 +1,16 @@
 body {
   font-family: 'Roboto', Helvetica, sans-serif;
+  /*background-image: url("https://i.kinja-img.com/gawker-media/image/upload/18ixkc0h01ymfjpg.jpg");
+  background-color: #cccccc;*/
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+
 }
 
 #title {
@@ -12,28 +23,107 @@ body {
   padding: 0 15px;
 }
 
+.glyphicon-ok {
+  font-size: 30px;
+  padding: 0 15px;
+}
+
 #archive-switch {
   float: right;
   text-align: right;
 }
 
-.example-enter {
+/*Transitions for movement left and right*/
+.list-enter {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+  max-height: 0;
+  padding: 0 !important;
+}
+.list-enter.list-enter-active {
+  max-height: 60px;
+  padding: 2rem 0 !important;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.list-leave {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.list-leave.list-leave-active {
+  -webkit-transform: translateX(120%);
+          transform: translateX(120%);
+  max-height: 0;
+  padding: 0;
+}
+
+.completed-enter {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+  max-height: 0;
+  padding: 0 !important;
+}
+.completed-enter.completed-enter-active {
+  max-height: 60px;
+  padding: 2rem 0 !important;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.completed-leave {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.completed-leave.completed-leave-active {
+  -webkit-transform: translateX(120%);
+          transform: translateX(120%);
+  max-height: 0;
+  padding: 0;
+}
+
+/*Transitions for fade in and out*/
+/*.list-enter {
   opacity: 0.01;
 }
 
-.example-enter.example-enter-active {
+.list-enter.list-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
 
-.example-leave {
+.list-leave {
   opacity: 1;
 }
 
-.example-leave.example-leave-active {
+.list-leave.list-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transition: opacity 500ms ease-in;
 }
+
+.completed-enter {
+  opacity: 0.01;
+}
+
+.completed-enter.completed-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.completed-leave {
+  opacity: 1;
+}
+
+.completed-leave.completed-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}*/
 
 #addTodoButton {
   margin-top: 15px;
@@ -43,9 +133,13 @@ body {
   padding-left: 4px;
 }
 
-input:focus {
-  border-bottom: 1px solid #3d5afe;
-  -webkit-box-shadow: 0 1px 0 0 #3d5afe;
-  -moz-box-shadow: 0 1px 0 0 #3d5afe;
-  box-shadow: 0 1px 0 0 #3d5afe;
+#icon_prefix2:focus {
+  border-bottom: 1px solid #f57c00;
+  -webkit-box-shadow: 0 1px 0 0 #f57c00;
+  -moz-box-shadow: 0 1px 0 0 #f57c00;
+  box-shadow: 0 1px 0 0 #f57c00
+}
+
+#form-label.active, #form-icon.active {
+  color: #f57c00;
 }

@@ -12,7 +12,7 @@ class TodoEntry extends React.Component {
       user: this.props.listItem.user,
       task: this.props.listItem.value,
       completed: this.props.listItem.completed
-    }
+    };
     return submission;
   }
 
@@ -21,7 +21,7 @@ class TodoEntry extends React.Component {
     var todoEntryContext = this;
 
     var completedSubmission = this.createSubmissionObj();
-    this.props.spliceTodo(this.props.index);
+    // this.props.spliceTodo(this.props.index);
 
     completedSubmission.completed = !completedSubmission.completed;
     
@@ -75,6 +75,6 @@ class TodoEntry extends React.Component {
           </a>
         </span>
       </li>
-    )
+    );
   }
 }
