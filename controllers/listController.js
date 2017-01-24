@@ -34,7 +34,6 @@ module.exports = {
     findListItems({completed: false})
     .then((listItems) => {
       return listItems.reverse();
-      // return listItems.sort(utility.sortByCompleteComparator);
     })
     .then((listItems) => {
       return res.status(200).json(listItems);
@@ -75,7 +74,6 @@ module.exports = {
     findListItems({completed: true})
     .then((listItems) => {
       return listItems.reverse();
-      // return listItems.sort(utility.sortByCompleteComparator);
     })
     .then((listItems) => {
       return res.status(200).json(listItems);

@@ -1,16 +1,13 @@
-function callback(data) {
-  console.log(data);
-}
 
 class InspirationalQuote extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       quote: {
         quoteText: '',
         quoteAuthor: ''
       }
-    }
+    };
   }
 
   componentWillMount() {
@@ -18,13 +15,13 @@ class InspirationalQuote extends React.Component {
     var quoteContext = this;
 
     $.ajax({
-      url: "http://api.forismatic.com/api/1.0/",
-      jsonp: "jsonp",
-      dataType: "jsonp",
+      url: 'http://api.forismatic.com/api/1.0/',
+      jsonp: 'jsonp',
+      dataType: 'jsonp',
       data: {
-        method: "getQuote",
-        lang: "en",
-        format: "jsonp"
+        method: 'getQuote',
+        lang: 'en',
+        format: 'jsonp'
       }
     })
     .done(function(data) {
@@ -52,7 +49,7 @@ class InspirationalQuote extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
