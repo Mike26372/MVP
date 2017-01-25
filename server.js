@@ -40,7 +40,7 @@ require('./utility/routes.js')(app, express);
 
 // Listen on port 3000
 app.listen(port, function(err) {
-  console.log(`Listening on port ${port}`)
-})
+  console.log(`Listening on port ${port}`);
+});
 
 module.exports = app;

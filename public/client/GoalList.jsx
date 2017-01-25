@@ -36,12 +36,3 @@ class GoalList extends React.Component {
     );
   }
 }
-
-// <div id="archive-switch" className="switch right right-align">
-//   <label>
-//     Off
-//     <input type="checkbox" />
-//     <span className="lever"></span>
-//     On
-//   </label>
-// </div>
