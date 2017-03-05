@@ -23,7 +23,7 @@ module.exports = {
       return res.status(201).json(data);
     })
     .fail((err) => {
-      console.error('List item could not be saved, try again noob');
+      console.error('List item could not be saved, try again');
       console.error(err);
       return res.status(404).end();  
     });

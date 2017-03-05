@@ -68,7 +68,7 @@ class TodoEntry extends React.Component {
             <input type="checkbox" 
             id={this.props.listItem._id} 
             onClick={() => this.handleCheckClick()}
-            checked={this.props.listItem.completed ? "checked" : ""}/>
+            checked={this.props.listItem.completed ? {"checked" : ""}}/>
             <label htmlFor={this.props.listItem._id}></label>
           </a>
         </span>
