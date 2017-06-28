@@ -1,2 +1,2 @@
 # Project Description
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on solo over the course of two days.
+This is a quick two day project I worked on while playing around with React and MongoDB. Enjoy!
